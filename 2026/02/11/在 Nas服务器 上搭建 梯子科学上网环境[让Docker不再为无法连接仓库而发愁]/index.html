@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>逍遥派</title><link rel="manifest" href="../../../../manifest.json"><meta name="application-name" content="逍遥府邸"><meta name="msapplication-TileImage" content="/img/smfavicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="逍遥府邸"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="在 Nas&amp;#x2F;服务器 上搭建 梯子&amp;#x2F;科学上网环境[让Docker不再为无法连接仓库而发愁]使用Linux环境下Docker搭建，本教程只做技术分享无任何不良引导，引发任何问题本站不负任何责任！【此教程只分享如何搭建科学上网的环境！！！用于科研等技术性需求，不提供梯子,魔法,科学上网订阅】"><meta property="og:type" content="blog"><meta property="og:title" content="逍遥派"><meta property="og:url" content="https://xiaooyao.github.io/2026/02/11/%E5%9C%A8%20Nas%E6%9C%8D%E5%8A%A1%E5%99%A8%20%E4%B8%8A%E6%90%AD%E5%BB%BA%20%E6%A2%AF%E5%AD%90%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E7%8E%AF%E5%A2%83[%E8%AE%A9Docker%E4%B8%8D%E5%86%8D%E4%B8%BA%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E4%BB%93%E5%BA%93%E8%80%8C%E5%8F%91%E6%84%81]/"><meta property="og:site_name" content="逍遥派"><meta property="og:description" content="在 Nas&amp;#x2F;服务器 上搭建 梯子&amp;#x2F;科学上网环境[让Docker不再为无法连接仓库而发愁]使用Linux环境下Docker搭建，本教程只做技术分享无任何不良引导，引发任何问题本站不负任何责任！【此教程只分享如何搭建科学上网的环境！！！用于科研等技术性需求，不提供梯子,魔法,科学上网订阅】"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://xiaooyao.github.io/images/2026-2-11-znas.png"><meta property="article:published_time" content="2026-02-11T12:50:33.274Z"><meta property="article:modified_time" content="2026-02-11T14:19:27.469Z"><meta property="article:author" content="SMEL"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://xiaooyao.github.io/images/2026-2-11-znas.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://xiaooyao.github.io/2026/02/11/%E5%9C%A8%20Nas%E6%9C%8D%E5%8A%A1%E5%99%A8%20%E4%B8%8A%E6%90%AD%E5%BB%BA%20%E6%A2%AF%E5%AD%90%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E7%8E%AF%E5%A2%83[%E8%AE%A9Docker%E4%B8%8D%E5%86%8D%E4%B8%BA%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E4%BB%93%E5%BA%93%E8%80%8C%E5%8F%91%E6%84%81]/"},"headline":"逍遥派","image":["https://xiaooyao.github.io/images/2026-2-11-znas.png"],"datePublished":"2026-02-11T12:50:33.274Z","dateModified":"2026-02-11T14:19:27.469Z","author":{"@type":"Person","name":"SMEL"},"publisher":{"@type":"Organization","name":"逍遥派","logo":{"@type":"ImageObject","url":"https://xiaooyao.github.io/img/smlogo.svg"}},"description":"在 Nas&#x2F;服务器 上搭建 梯子&#x2F;科学上网环境[让Docker不再为无法连接仓库而发愁]使用Linux环境下Docker搭建，本教程只做技术分享无任何不良引导，引发任何问题本站不负任何责任！【此教程只分享如何搭建科学上网的环境！！！用于科研等技术性需求，不提供梯子,魔法,科学上网订阅】"}</script><link rel="canonical" href="https://xiaooyao.github.io/2026/02/11/%E5%9C%A8%20Nas%E6%9C%8D%E5%8A%A1%E5%99%A8%20%E4%B8%8A%E6%90%AD%E5%BB%BA%20%E6%A2%AF%E5%AD%90%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E7%8E%AF%E5%A2%83[%E8%AE%A9Docker%E4%B8%8D%E5%86%8D%E4%B8%BA%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E4%BB%93%E5%BA%93%E8%80%8C%E5%8F%91%E6%84%81]/"><link rel="icon" href="../../../../img/smfavicon.svg"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/rainbow.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Oxanium:wght@300;400;600&amp;family=Roboto+Mono"><link data-pjax rel="stylesheet" href="../../../../css/cyberpunk.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdnjs.loli.net/ajax/libs/pace/1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="../../../../index.html"><img src="../../../../img/smlogo.svg" alt="逍遥派" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="../../../../index.html">Home</a><a class="navbar-item" href="../../../../archives">Archives</a><a class="navbar-item" href="../../../../categories">Categories</a><a class="navbar-item" href="../../../../tags">Tags</a><a class="navbar-item" href="../../../../about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/xiaooyao"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-02-11T12:50:33.274Z" title="2026/2/11 20:50:33">2026-02-11</time>发表</span><span class="level-item"><time dateTime="2026-02-11T14:19:27.469Z" title="2026/2/11 22:19:27">2026-02-11</time>更新</span><span class="level-item">8 分钟读完 (大约1274个字)</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><div class="content"><h1 id="在-Nas-服务器-上搭建-梯子-科学上网环境-让Docker不再为无法连接仓库而发愁"><a href="#在-Nas-服务器-上搭建-梯子-科学上网环境-让Docker不再为无法连接仓库而发愁" class="headerlink" title="在 Nas&#x2F;服务器 上搭建 梯子&#x2F;科学上网环境[让Docker不再为无法连接仓库而发愁]"></a>在 Nas&#x2F;服务器 上搭建 梯子&#x2F;科学上网环境[让Docker不再为无法连接仓库而发愁]</h1><p>使用Linux环境下Docker搭建，本教程只做技术分享无任何不良引导，引发任何问题本站不负任何责任！【<u>此教程只分享如何搭建科学上网的<strong>环境</strong>！！！用于科研等技术性需求，<strong>不提供</strong>梯子,魔法,科学上网订阅</u>】</p>
+<span id="more"></span>
+
+<hr>
+<h2 id="前情提要："><a href="#前情提要：" class="headerlink" title="前情提要："></a>前情提要：</h2><p>​	<strong>魔法有风险，使用需谨慎</strong>，如果只是因为无法连接Docker仓库的话，那么我推荐以下一键换源脚本：</p>
+<p>​	Linux系统换源：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -sSL https://linuxmirrors.cn/main.sh)</span><br></pre></td></tr></table></figure>
+
+<p>​	Docker换源：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -sSL https://linuxmirrors.cn/docker.sh)</span><br></pre></td></tr></table></figure>
+
+<p><em>Ps：在本教程中，梯子&#x2F;魔法&#x2F;科学上网环境，统一称为<strong>链路</strong></em></p>
+<p>那么，就开始吧！</p>
+<hr>
+<h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><p>一台 服务器&#x2F;Nas(运行Linux类型系统，且已经基本调教完毕)</p>
+<p>运行配置最好: H &gt;&#x3D;  512MB ; C &gt;&#x3D; 1</p>
+<p>如果你手握一台崭新服务器，先调教一下，更新软件包,换源</p>
+<h2 id="一-开始"><a href="#一-开始" class="headerlink" title="一.开始"></a>一.开始</h2><p>本教程所用环境&#x2F;工具<a target="_blank" rel="noopener" href="https://github.com/nelvko/clash-for-linux-install">来源</a>：</p>
+<p>Linux 一键安装 Clash</p>
+<p><img src="/images/2026-2-11-znas.png" alt="安装成功图"></p>
+<p>在你的 服务器&#x2F;Nas 中一次性使用以下指令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone --branch master --depth 1 https://gh-proxy.org/https://github.com/nelvko/clash-for-linux-install.git \</span><br><span class="line">  &amp;&amp; cd clash-for-linux-install \</span><br><span class="line">  &amp;&amp; bash install.sh</span><br></pre></td></tr></table></figure>
+
+<p>其中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://gh-proxy.org</span><br></pre></td></tr></table></figure>
+
+<p>为加速链接，若该加速域名挂了，你可以将其替换为其他加速域名 [ 网上自己去搜 ]</p>
+<h6 id="卸载："><a href="#卸载：" class="headerlink" title="卸载："></a>卸载：</h6><p>在安装目录下执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash uninstall.sh</span><br></pre></td></tr></table></figure>
+
+<h2 id="二-安装成功！"><a href="#二-安装成功！" class="headerlink" title="二.安装成功！"></a>二.安装成功！</h2><p>安装成功后，控制台会显示访问链路配置页面的链接</p>
+<p>若服务器上已经安装 <strong>防火墙</strong> 注意放行端口<strong>9090</strong>(宝塔面板自带防火墙噢，注意放行)</p>
+<p>与服务器处于局域网则直接访问内网链接：</p>
+<p><a target="_blank" rel="noopener" href="http://192.168.3.151:9090/ui">http://192.168.3.151:9090/ui</a></p>
+<p>处于公网则访问：</p>
+<p>http:&#x2F;&#x2F;你的服务器IP:9090&#x2F;ui</p>
+<p>或者访问公共面板地址：</p>
+<p><a target="_blank" rel="noopener" href="http://board.zash.run.place/">http://board.zash.run.place</a></p>
+<h2 id="三-配置"><a href="#三-配置" class="headerlink" title="三.配置"></a>三.配置</h2><p>控制台命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Usage: </span><br><span class="line">  clashctl COMMAND [OPTIONS]</span><br><span class="line"></span><br><span class="line">Commands:</span><br><span class="line">    on                    开启代理</span><br><span class="line">    off                   关闭代理</span><br><span class="line">    status                内核状况</span><br><span class="line">    proxy                 系统代理</span><br><span class="line">    ui                    Web 面板</span><br><span class="line">    secret                Web 密钥</span><br><span class="line">    sub                   订阅管理</span><br><span class="line">    upgrade               升级内核</span><br><span class="line">    tun                   Tun 模式</span><br><span class="line">    mixin                 Mixin 配置</span><br><span class="line"></span><br><span class="line">Global Options:</span><br><span class="line">    -h, --help            显示帮助信息</span><br></pre></td></tr></table></figure>
+
+<p><em>Ps: clashon &#x3D; clashctl on , 可用 <strong>Tab</strong> 补全</em></p>
+<p>首次启动会让你添加一个订阅，输入链路地址即可</p>
+<p><em>(有些链路使用特殊协议 此环境可能不适配而导致下载失败，请寻找其他教程)</em></p>
+<p>若你要添加第二个订阅，则输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clashctl sub add</span><br></pre></td></tr></table></figure>
+
+<p>完全开启需要两个指令：</p>
+<h6 id="1-开启代理环境"><a href="#1-开启代理环境" class="headerlink" title="1.开启代理环境"></a>1.开启代理环境</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clashon</span><br></pre></td></tr></table></figure>
+
+<h6 id="2-开启代理（已经在面板选择好链路）"><a href="#2-开启代理（已经在面板选择好链路）" class="headerlink" title="2.开启代理（已经在面板选择好链路）"></a>2.开启代理（已经在面板选择好链路）</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clashctl proxy on</span><br></pre></td></tr></table></figure>
+
+<p>Ps: 若只开启了环境而<strong>没有开启</strong>代理，则链路<strong>无效</strong></p>
+<h2 id="四-控制面板配置："><a href="#四-控制面板配置：" class="headerlink" title="四.控制面板配置："></a>四.控制面板配置：</h2><p>放行端口后，打开对应的链接</p>
+<p>会出现配置界面</p>
+<p>其中主机一栏填写：你服务器的公网IP&#x2F;局域网下你的Nas的内网IP</p>
+<p>密码在每次安装时随机生成，在你安装完成时显示的“Web 控制台”下显示</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">😼 当前密钥：******</span><br><span class="line">🎉 enjoy 🎉</span><br></pre></td></tr></table></figure>
+
+<p>将密钥填入密码一栏即可</p>
+<p><em>进入面板后若要退出：点击左下角箭头，再点击弹出侧边栏的下方的加号，就可以回到配置界面</em></p>
+<p>一般进入面板，代理界面就会自动显示你的 订阅&#x2F;链路 ，选择好后再执行<strong>三.配置</strong>中的<strong>完全开启指令</strong>即可，建议用完后立即关闭。</p>
+<h1 id="好！大功告成！"><a href="#好！大功告成！" class="headerlink" title="好！大功告成！"></a>好！大功告成！</h1><hr>
+<p>Wait….</p>
+<p>还有必须的 常见问题解决环节</p>
+<h2 id="五-疑难杂症"><a href="#五-疑难杂症" class="headerlink" title="五.疑难杂症"></a>五.疑难杂症</h2><h6 id="1-安装完后，控制台报错显示"><a href="#1-安装完后，控制台报错显示" class="headerlink" title="1.安装完后，控制台报错显示"></a>1.安装完后，控制台报错显示</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;clashctl: command not found&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>不必担心，这只是因为系统环境没有添加 链路环境</p>
+<p>在你现在刚安装好程序的 终端&#x2F;窗口（或者打开默认安装位置: ~&#x2F;clash-for-linux-install)</p>
+<p>执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash -i</span><br></pre></td></tr></table></figure>
+
+<h6 id="2-Docker内无法连接到链路，依旧使用普通网络"><a href="#2-Docker内无法连接到链路，依旧使用普通网络" class="headerlink" title="2.Docker内无法连接到链路，依旧使用普通网络"></a>2.Docker内无法连接到链路，依旧使用普通网络</h6><p>打开登录Web面板</p>
+<p>打开设置</p>
+<p>下滑找到<strong>后端</strong>部分</p>
+<p>打开允许局域网即可</p>
+<p><em><u>Ps: 每次主机重启或环境重启都需要手动打开一下允许局域网选项</em></u></p>
+<p><u><em>更多问题反馈与解决方法请到Github页面查看，此处只写日常遇到的问题</em></u></p>
+<p>其他问题 跳转<a target="_blank" rel="noopener" href="https://github.com/nelvko/clash-for-linux-install/wiki/FAQ">Wiki&#x2F;FAQ</a></p>
+<h2 id="六-最后最后"><a href="#六-最后最后" class="headerlink" title="六.最后最后"></a>六.最后最后</h2><p>此行为有风险，操作请谨慎。再次申明 此教程只分享如何搭建科学上网的<strong>环境</strong>！！！用于科研等技术性需求，<strong>不提供</strong>梯子,魔法,科学上网订阅。若被不可抗力因素删除，本站没有义务解释和再次发布相关内容。</p>
+<hr>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script></div><div class="article-licensing box"><div class="licensing-title"><p><a href="https://xiaooyao.github.io/2026/02/11/在 Nas服务器 上搭建 梯子科学上网环境[让Docker不再为无法连接仓库而发愁]/">https://xiaooyao.github.io/2026/02/11/在 Nas服务器 上搭建 梯子科学上网环境[让Docker不再为无法连接仓库而发愁]/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>SMEL</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2026-02-11</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2026-02-11</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="../%E7%BA%B8%E9%A3%9E%E6%9C%BA%E8%87%AA%E5%8A%A9%E5%AA%92%E4%BD%93%E4%B8%8B%E8%BD%BD%E6%9C%BA%E5%99%A8%E4%BA%BA%5BTelegram%20media%20down%5D/"><span class="level-item"> </span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div id="SOHUCS" sid="2026/02/11/在 Nas服务器 上搭建 梯子科学上网环境[让Docker不再为无法连接仓库而发愁]/"></div><script charset="utf-8" src="https://changyan.sohu.com/upload/changyan.js"></script><script>window.changyan.api.config({appid: 'cyylwMJcA',conf: 'prod_e8298c947e9b07b531861f9354187202'});</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="../../../../img/avatar.png" alt="SMEL"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">SMEL</p><p class="is-size-6 is-block">One student of QingZhong</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>China , Shanxi</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="../../../../archives"><p class="title">3</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="../../../../categories"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="../../../../tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/xiaooyao" target="_blank" rel="me noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/xiaooyao"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="RSS" href="../../../../index.html"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://www.cnblogs.com/LungGiyo" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">TingLong</span></span><span class="level-right"><span class="level-item tag">www.cnblogs.com</span></span></a></li></ul></div></div></div><!--!--><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-02-11T12:50:33.274Z">2026-02-11</time></p><p class="title"><a href=""> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-02-11T04:03:28.923Z">2026-02-11</time></p><p class="title"><a href="../%E7%BA%B8%E9%A3%9E%E6%9C%BA%E8%87%AA%E5%8A%A9%E5%AA%92%E4%BD%93%E4%B8%8B%E8%BD%BD%E6%9C%BA%E5%99%A8%E4%BA%BA%5BTelegram%20media%20down%5D/"> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-02-10T13:33:24.447Z">2026-02-10</time></p><p class="title"><a href="../../10/oect%E5%88%B7armbian%E5%92%8Ccasaos%E6%80%BB%E7%BB%93/"> </a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="../../../../archives/2026/02/"><span class="level-start"><span class="level-item">二月 2026</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><!--!--></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="../../../../index.html"><img src="../../../../img/smlogo.svg" alt="逍遥派" height="28"></a><p class="is-size-7"><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p><p class="is-size-7">Copyright © 2025 SMEL | Xiaooyao</p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="../../../../js/column.js"></script><script src="../../../../js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script data-pjax src="../../../../js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/pjax/0.2.8/pjax.min.js"></script><script src="../../../../js/pjax.js"></script><!--!--><!--!--><!--!--><script data-pjax src="../../../../js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script data-pjax src="../../../../js/insight.js" defer></script><script data-pjax>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"../../../../content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

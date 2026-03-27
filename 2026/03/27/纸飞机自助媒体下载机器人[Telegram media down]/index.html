@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>逍遥派</title><link rel="manifest" href="../../../../manifest.json"><meta name="application-name" content="逍遥府邸"><meta name="msapplication-TileImage" content="/img/smfavicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="逍遥府邸"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="用Docker搭建纸飞机自助媒体下载机器人[Telegram media down bot] [Nas搭建教程]使用Linux环境下Docker搭建，本教程只做分享无任何不良引导，引发任何问题本站不负任何责任！"><meta property="og:type" content="blog"><meta property="og:title" content="逍遥派"><meta property="og:url" content="https://xiaooyao.github.io/2026/03/27/%E7%BA%B8%E9%A3%9E%E6%9C%BA%E8%87%AA%E5%8A%A9%E5%AA%92%E4%BD%93%E4%B8%8B%E8%BD%BD%E6%9C%BA%E5%99%A8%E4%BA%BA[Telegram%20media%20down]/"><meta property="og:site_name" content="逍遥派"><meta property="og:description" content="用Docker搭建纸飞机自助媒体下载机器人[Telegram media down bot] [Nas搭建教程]使用Linux环境下Docker搭建，本教程只做分享无任何不良引导，引发任何问题本站不负任何责任！"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://xiaooyao.github.io/images/settings.png"><meta property="og:image" content="https://xiaooyao.github.io/images/botfather1.png"><meta property="og:image" content="https://xiaooyao.github.io/images/botfather2.png"><meta property="og:image" content="https://xiaooyao.github.io/images/telegram.orglogin.png"><meta property="og:image" content="https://xiaooyao.github.io/images/apitianru.png"><meta property="og:image" content="https://xiaooyao.github.io/images/setting2.png"><meta property="og:image" content="https://xiaooyao.github.io/images/setting.jpg"><meta property="og:image" content="https://xiaooyao.github.io/images/1.png"><meta property="og:image" content="https://xiaooyao.github.io/images/ok.png"><meta property="article:published_time" content="2026-03-27T06:21:31.121Z"><meta property="article:modified_time" content="2026-03-27T06:21:40.709Z"><meta property="article:author" content="SMEL"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://xiaooyao.github.io/images/settings.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://xiaooyao.github.io/2026/03/27/%E7%BA%B8%E9%A3%9E%E6%9C%BA%E8%87%AA%E5%8A%A9%E5%AA%92%E4%BD%93%E4%B8%8B%E8%BD%BD%E6%9C%BA%E5%99%A8%E4%BA%BA[Telegram%20media%20down]/"},"headline":"逍遥派","image":["https://xiaooyao.github.io/images/settings.png","https://xiaooyao.github.io/images/botfather1.png","https://xiaooyao.github.io/images/botfather2.png","https://xiaooyao.github.io/images/telegram.orglogin.png","https://xiaooyao.github.io/images/apitianru.png","https://xiaooyao.github.io/images/setting2.png","https://xiaooyao.github.io/images/setting.jpg","https://xiaooyao.github.io/images/1.png","https://xiaooyao.github.io/images/ok.png"],"datePublished":"2026-03-27T06:21:31.121Z","dateModified":"2026-03-27T06:21:40.709Z","author":{"@type":"Person","name":"SMEL"},"publisher":{"@type":"Organization","name":"逍遥派","logo":{"@type":"ImageObject","url":"https://xiaooyao.github.io/img/smlogo.svg"}},"description":"用Docker搭建纸飞机自助媒体下载机器人[Telegram media down bot] [Nas搭建教程]使用Linux环境下Docker搭建，本教程只做分享无任何不良引导，引发任何问题本站不负任何责任！"}</script><link rel="canonical" href="https://xiaooyao.github.io/2026/03/27/%E7%BA%B8%E9%A3%9E%E6%9C%BA%E8%87%AA%E5%8A%A9%E5%AA%92%E4%BD%93%E4%B8%8B%E8%BD%BD%E6%9C%BA%E5%99%A8%E4%BA%BA[Telegram%20media%20down]/"><link rel="icon" href="../../../../img/smfavicon.svg"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/rainbow.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Oxanium:wght@300;400;600&amp;family=Roboto+Mono"><link data-pjax rel="stylesheet" href="../../../../css/cyberpunk.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdnjs.loli.net/ajax/libs/pace/1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="../../../../index.html"><img src="../../../../img/smlogo.svg" alt="逍遥派" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="../../../../index.html">Home</a><a class="navbar-item" href="../../../../archives">Archives</a><a class="navbar-item" href="../../../../categories">Categories</a><a class="navbar-item" href="../../../../tags">Tags</a><a class="navbar-item" href="../../../../about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/xiaooyao"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-27T06:21:31.121Z" title="2026/3/27 14:21:31">2026-03-27</time>发表</span><span class="level-item"><time dateTime="2026-03-27T06:21:40.709Z" title="2026/3/27 14:21:40">2026-03-27</time>更新</span><span class="level-item">13 分钟读完 (大约1977个字)</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><div class="content"><h1 id="用Docker搭建纸飞机自助媒体下载机器人-Telegram-media-down-bot-Nas搭建教程"><a href="#用Docker搭建纸飞机自助媒体下载机器人-Telegram-media-down-bot-Nas搭建教程" class="headerlink" title="用Docker搭建纸飞机自助媒体下载机器人[Telegram media down bot] [Nas搭建教程]"></a>用Docker搭建纸飞机自助媒体下载机器人[Telegram media down bot] [Nas搭建教程]</h1><p>使用Linux环境下Docker搭建，本教程只做分享无任何不良引导，引发任何问题本站不负任何责任！</p>
+<span id="more"></span>
+
+<hr>
+<p>基于Dineshkarthik的项目， 电报视频下载，电报资源下载，跨平台，支持web查看下载进度 ，支持bot下发指令下载，支持下载已经加入的私有群但是限制下载的资源。</p>
+<p><em>本文设备使用：网新云Oect (Nas)</em></p>
+<p><em>系统：Armbian（Ubuntu）</em></p>
+<p><em>提示：此Bot需要<del>科学上网</del>环境，如果你没有或不知道如何给 Nas &amp; 服务器 挂载梯子，请先看这篇<a href="https://xiaooyao.github.io/2026/02/11/%E5%9C%A8%20Nas%E6%9C%8D%E5%8A%A1%E5%99%A8%20%E4%B8%8A%E6%90%AD%E5%BB%BA%20%E6%A2%AF%E5%AD%90%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E7%8E%AF%E5%A2%83%5B%E8%AE%A9Docker%E4%B8%8D%E5%86%8D%E4%B8%BA%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E4%BB%93%E5%BA%93%E8%80%8C%E5%8F%91%E6%84%81%5D"><u>文章</u></a>(点击跳转)</em></p>
+<hr>
+<h2 id="前情提要："><a href="#前情提要：" class="headerlink" title="前情提要："></a>前情提要：</h2><p>​	本教程所有环境&#x2F;工具来源：</p>
+<p>​		<a href="https://xiaooyao.github.io/2026/02/11/%E5%9C%A8%20Nas%E6%9C%8D%E5%8A%A1%E5%99%A8%20%E4%B8%8A%E6%90%AD%E5%BB%BA%20%E6%A2%AF%E5%AD%90%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E7%8E%AF%E5%A2%83%5B%E8%AE%A9Docker%E4%B8%8D%E5%86%8D%E4%B8%BA%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E4%BB%93%E5%BA%93%E8%80%8C%E5%8F%91%E6%84%81%5D">Nas版科学上网</a></p>
+<p>​		<a target="_blank" rel="noopener" href="https://github.com/tangyoha/telegram_media_downloader/">Telegram媒体下载机器人</a></p>
+<p>​	<strong>魔法有风险，使用需谨慎</strong></p>
+<p><em>Ps：在本教程中，梯子&#x2F;魔法&#x2F;科学上网环境，统一称为<strong>链路</strong></em>;</p>
+<p>​		本教程只含Linux版指令，win请到上方工具来源中寻找</p>
+<p>​		本教程<strong>不分享</strong>任何 <strong>梯子&#x2F;魔法&#x2F;科学上网</strong>！</p>
+<p>那么，进行以下步骤！</p>
+<hr>
+<h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><p>一台 服务器&#x2F;Nas(运行Linux类型系统，且已经基本调教完毕)</p>
+<p>一台能连接 服务器&#x2F;Nas 的电脑</p>
+<p>运行配置: C &gt;&#x3D;  2 ; G &gt;&#x3D; 2G</p>
+<p>如果你手握一台崭新服务器，先调教一下，使docker适配国内网络环境</p>
+<p>服务器&#x2F;Nas 以及电脑 要求已经安装好<u>链路</u></p>
+<p><u>确认你的 服务器&#x2F;Nas 能够通过链路连接到纸飞机api</u></p>
+<h2 id="一-直接安装（方式一）"><a href="#一-直接安装（方式一）" class="headerlink" title="一.直接安装（方式一）"></a>一.直接安装（方式一）</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/tangyoha/telegram_media_downloader.git</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd telegram_media_downloader</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<h2 id="二-Docker（方式二）"><a href="#二-Docker（方式二）" class="headerlink" title="二.Docker（方式二）"></a>二.Docker（方式二）</h2><h3 id="1-请确认安装了docker和docker-compose"><a href="#1-请确认安装了docker和docker-compose" class="headerlink" title="1.请确认安装了docker和docker-compose"></a>1.请确认安装了docker和docker-compose</h3><h3 id="2-启动你已经部署好的链路并开启了局域网连接-详情看往期文章-，更换docker镜像源为官方源-详情指令看往期文章"><a href="#2-启动你已经部署好的链路并开启了局域网连接-详情看往期文章-，更换docker镜像源为官方源-详情指令看往期文章" class="headerlink" title="2.启动你已经部署好的链路并开启了局域网连接(详情看往期文章)，更换docker镜像源为官方源(详情指令看往期文章)"></a>2.启动你已经部署好的链路并开启了局域网连接(详情看往期<a href="https://xiaooyao.github.io/2026/02/11/%E5%9C%A8%20Nas%E6%9C%8D%E5%8A%A1%E5%99%A8%20%E4%B8%8A%E6%90%AD%E5%BB%BA%20%E6%A2%AF%E5%AD%90%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E7%8E%AF%E5%A2%83%5B%E8%AE%A9Docker%E4%B8%8D%E5%86%8D%E4%B8%BA%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E4%BB%93%E5%BA%93%E8%80%8C%E5%8F%91%E6%84%81%5D">文章</a>)，更换docker镜像源为官方源(详情指令看往期<a href="https://xiaooyao.github.io/2026/02/10/oect%E5%88%B7armbian%E5%92%8Ccasaos%E6%80%BB%E7%BB%93/">文章</a>)</h3><h3 id="3-按照以下指令逐步安装"><a href="#3-按照以下指令逐步安装" class="headerlink" title="3.按照以下指令逐步安装"></a>3.按照以下指令逐步安装</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull tangyoha/telegram_media_downloader:latest</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~/app &amp;&amp; mkdir -p ~/app/log/ &amp;&amp; cd ~/app</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://raw.githubusercontent.com/tangyoha/telegram_media_downloader/master/docker-compose.yaml -O docker-compose.yaml</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://raw.githubusercontent.com/tangyoha/telegram_media_downloader/master/config.yaml -O config.yaml</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://raw.githubusercontent.com/tangyoha/telegram_media_downloader/master/data.yaml -O data.yaml</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-编辑config以及其他准备"><a href="#4-编辑config以及其他准备" class="headerlink" title="4.编辑config以及其他准备"></a>4.编辑config以及其他准备</h3><p>继续输入以下指令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano config.yaml</span><br></pre></td></tr></table></figure>
+
+<p>将里面内容全部替换为：</p>
+<p><em>(下方替换样式只适合Linux版Docker安装方式，其他样式可进纸飞机交流群寻求帮助，详情请看工具来源处）</em></p>
+<p>连按 Ctrl + x + y + Enter 保存退出文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">api_hash: </span><br><span class="line">api_id: </span><br><span class="line">bot_token: </span><br><span class="line">web_host: 0.0.0.0</span><br><span class="line">chat:</span><br><span class="line"></span><br><span class="line">- chat_id: </span><br><span class="line">  last_read_message_id:</span><br><span class="line">media_types:</span><br><span class="line">- audio</span><br><span class="line">- photo</span><br><span class="line">- video</span><br><span class="line">- document</span><br><span class="line">- voice</span><br><span class="line">- video_note</span><br><span class="line">file_formats:</span><br><span class="line">  audio:</span><br><span class="line">  - all</span><br><span class="line">  document:</span><br><span class="line">  - pdf</span><br><span class="line">  - epub</span><br><span class="line">  video:</span><br><span class="line">  - mp4</span><br><span class="line">  - mkv</span><br><span class="line">proxy:</span><br><span class="line">  scheme: socks5</span><br><span class="line">  hostname: host.docker.internal</span><br><span class="line">  port: 7890</span><br><span class="line">  language: ZH</span><br><span class="line">file_path_prefix:</span><br><span class="line">- chat_title</span><br><span class="line">- media_datetime</span><br><span class="line">language: ZH</span><br><span class="line">save_path: /app/downloads</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><em>这里倒数第7行”port: 7890”可根据你的链路端口自行修改</em></p>
+<p>再次输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano docker-compose.yaml</span><br></pre></td></tr></table></figure>
+
+<p>将里面第十行的”#environment”等直到”volumes”其间的内容替换为(注意缩进)：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">environment:</span><br><span class="line">      - http_proxy=socks5h://host.docker.internal:7890</span><br><span class="line">      - https_proxy=socks5h://host.docker.internal:7890 </span><br><span class="line">extra_hosts:</span><br><span class="line">      - &quot;host.docker.internal:host-gateway&quot;</span><br></pre></td></tr></table></figure>
+
+<p><em>这里的两个”: 7890”可根据你的链路端口自行修改</em></p>
+<p>连按 Ctrl + x  再按 y 和 Enter 保存文件</p>
+<p><img src="/images/settings.png" alt="settings"></p>
+<h4 id="4-1获取bot-token"><a href="#4-1获取bot-token" class="headerlink" title="4.1获取bot_token"></a>4.1获取bot_token</h4><p>​	与BotFather聊天</p>
+<p>​	点击”打开”</p>
+<p><img src="/images/botfather1.png" alt="botfather1"></p>
+<p><img src="/images/botfather2.png" alt="botfather2"></p>
+<p>​	输入要创建的机器人名称,用户名</p>
+<p>​	将BotToken复制下来，并粘贴到上方内容的”bot_token”处，注意空一格再填入</p>
+<p>​	此时可搜索填入的用户名找到机器人，放其备用。</p>
+<h4 id="4-2获取api"><a href="#4-2获取api" class="headerlink" title="4.2获取api"></a>4.2获取api</h4><p>​	登录纸飞机api<a target="_blank" rel="noopener" href="https://my.telegram.org/">官网</a></p>
+<p><img src="/images/telegram.orglogin.png" alt="登录纸飞机图"></p>
+<p>​	输入国区号及手机号后，官方会在应用内发给你一串代码(code)</p>
+<p>​	输入到”<strong>Confirmation code</strong>“一栏中</p>
+<p>​	登录后点击”<strong>API development tools</strong>“即可创建机器人api</p>
+<p>​	由于小编已经完成此步骤，不再过多叙述</p>
+<p>​	将”api_id”和”api_bash”分别对应填入config.yaml，例下：</p>
+<p><img src="/images/apitianru.png" alt="api填入"></p>
+<p>​	连按 Ctrl + x  再按 y 和 Enter 保存文件</p>
+<h4 id="4-3bot设置"><a href="#4-3bot设置" class="headerlink" title="4.3bot设置"></a>4.3bot设置</h4><p>​	bot登录方式为两种，分为bot登录和mobile user登录</p>
+<p>​	两种登录所设权限不同，以下仅展示mobile user登录（用创建机器人的手机号登录）</p>
+<p>​	打开@BotFather</p>
+<p>​	点击你的机器人进入详情页面</p>
+<p>​	下滑找到”Settings”栏中的”Bot Settings”</p>
+<p>​	<img src="/images/setting2.png" alt="setting2"></p>
+<p>​	按如下图片进行配置</p>
+<p>​	<img src="/images/setting.jpg" alt="setting"></p>
+<h3 id="5-启动-停止及更新"><a href="#5-启动-停止及更新" class="headerlink" title="5.启动,停止及更新"></a>5.启动,停止及更新</h3><h4 id="5-1启动"><a href="#5-1启动" class="headerlink" title="5.1启动"></a>5.1启动</h4><p>开放防火墙端口”5000”和”7890”(<u>此处7890可替换为上文你所修改的链路的端口</u>)</p>
+<p>在控制端文件目录下(~&#x2F;app)输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose run --rm telegram_media_downloader</span><br></pre></td></tr></table></figure>
+
+<p>等待一会后，正常就会出现以下问题：</p>
+<p><img src="/images/1.png" alt="1"></p>
+<p>这里本教程采用moblie登录，也就是你注册机器人所用的纸飞机账号 的绑定的手机号</p>
+<p>​	输入”国家码+手机号”</p>
+<p>​	按”y”回车</p>
+<p>​	将app内收到的验证码填入</p>
+<p>​	登录成功！转到机器人聊天页面</p>
+<p><img src="/images/ok.png" alt="ok"></p>
+<h4 id="5-2停止"><a href="#5-2停止" class="headerlink" title="5.2停止"></a>5.2停止</h4><p>​	停止机器人可使用宝塔停止Docker示例&amp;执行以下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose down</span><br></pre></td></tr></table></figure>
+
+<p>​	退出前台 后台保活 执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-3更新"><a href="#5-3更新" class="headerlink" title="5.3更新"></a>5.3更新</h4><h5 id="Docker版："><a href="#Docker版：" class="headerlink" title="Docker版："></a>Docker版：</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker pull tangyoha/telegram_media_downloader:latest</span><br><span class="line">cd ~/app</span><br><span class="line">docker-compose down</span><br><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
+
+<p>​	每行代码分别复制执行</p>
+<h5 id="直接安装版："><a href="#直接安装版：" class="headerlink" title="直接安装版："></a>直接安装版：</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd telegram_media_downloader</span><br><span class="line">pip3 install -r requirements.txt</span><br></pre></td></tr></table></figure>
+
+<p>​	每行代码分别复制执行</p>
+<h3 id="6-命令总结"><a href="#6-命令总结" class="headerlink" title="6.命令总结"></a>6.命令总结</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#下载普通团体的所有消息 </span><br><span class="line">- /download https://t.me/fkdhlg</span><br><span class="line"></span><br><span class="line">#私有群（频道）链接，就是复制一个群消息链接</span><br><span class="line"></span><br><span class="line">#下载从第 0 条消息开始的所有消息 </span><br><span class="line">- /download https://t.me/12000000</span><br><span class="line"></span><br><span class="line">#下载从第二条消息 </span><br><span class="line">- /download https://t.me/12000000 2</span><br><span class="line"></span><br><span class="line">#T下载从第二条消息开始，结束时为 100 </span><br><span class="line">- /download https://t.me/12000000 2 100</span><br><span class="line"></span><br><span class="line">#直接下载，直接给你的机器人发消息</span><br><span class="line"></span><br><span class="line">#直接下载一条消息</span><br></pre></td></tr></table></figure>
+
+<h1 id="好！大功告成！"><a href="#好！大功告成！" class="headerlink" title="好！大功告成！"></a>好！大功告成！</h1><hr>
+<p>其他问题可查阅工具来源（包括本篇未提及的群晖安装教程等）</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/tangyoha/telegram_media_downloader/issues">Github telegram_media Issues 问题解答</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/tangyoha/telegram_media_downloader/wiki">Github telegram_media wiki 百科</a></p>
+<p><em>Ps:来源未提及卸载命令（悲）</em></p>
+<h2 id="六-最后最后"><a href="#六-最后最后" class="headerlink" title="六.最后最后"></a>六.最后最后</h2><p>此行为有风险，操作请谨慎。再次申明 此教程只用于技术性需求！！！，<strong>不提供</strong>梯子,魔法,科学上网订阅。若被不可抗力因素删除，本站没有义务解释和再次发布相关内容。</p>
+<hr>
+<p><code>&lt;©SMEL &amp; Xiaooyao&gt;</code></p>
+<p><code>&lt;转载引用请注明出处&gt;</code></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script></div><div class="article-licensing box"><div class="licensing-title"><p><a href="https://xiaooyao.github.io/2026/03/27/纸飞机自助媒体下载机器人[Telegram media down]/">https://xiaooyao.github.io/2026/03/27/纸飞机自助媒体下载机器人[Telegram media down]/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>SMEL</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2026-03-27</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2026-03-27</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="../../../02/11/%E5%9C%A8%20Nas%E6%9C%8D%E5%8A%A1%E5%99%A8%20%E4%B8%8A%E6%90%AD%E5%BB%BA%20%E6%A2%AF%E5%AD%90%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E7%8E%AF%E5%A2%83%5B%E8%AE%A9Docker%E4%B8%8D%E5%86%8D%E4%B8%BA%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E4%BB%93%E5%BA%93%E8%80%8C%E5%8F%91%E6%84%81%5D/"><span class="level-item"> </span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div id="SOHUCS" sid="2026/03/27/纸飞机自助媒体下载机器人[Telegram media down]/"></div><script charset="utf-8" src="https://changyan.sohu.com/upload/changyan.js"></script><script>window.changyan.api.config({appid: 'cyylwMJcA',conf: 'prod_e8298c947e9b07b531861f9354187202'});</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="../../../../img/avatar.png" alt="SMEL"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">SMEL</p><p class="is-size-6 is-block">One student of QingZhong</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="../../../../archives"><p class="title">3</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="../../../../categories"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="../../../../tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/xiaooyao" target="_blank" rel="me noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/xiaooyao"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="RSS" href="../../../../index.html"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://www.cnblogs.com/LungGiyo" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">TingLong</span></span><span class="level-right"><span class="level-item tag">www.cnblogs.com</span></span></a></li></ul></div></div></div><!--!--><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-27T06:21:31.121Z">2026-03-27</time></p><p class="title"><a href=""> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-02-11T12:50:33.274Z">2026-02-11</time></p><p class="title"><a href="../../../02/11/%E5%9C%A8%20Nas%E6%9C%8D%E5%8A%A1%E5%99%A8%20%E4%B8%8A%E6%90%AD%E5%BB%BA%20%E6%A2%AF%E5%AD%90%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E7%8E%AF%E5%A2%83%5B%E8%AE%A9Docker%E4%B8%8D%E5%86%8D%E4%B8%BA%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E4%BB%93%E5%BA%93%E8%80%8C%E5%8F%91%E6%84%81%5D/"> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-02-10T13:33:24.447Z">2026-02-10</time></p><p class="title"><a href="../../../02/10/oect%E5%88%B7armbian%E5%92%8Ccasaos%E6%80%BB%E7%BB%93/"> </a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="../../../../archives/2026/03/"><span class="level-start"><span class="level-item">三月 2026</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="../../../../archives/2026/02/"><span class="level-start"><span class="level-item">二月 2026</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div><!--!--></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="../../../../index.html"><img src="../../../../img/smlogo.svg" alt="逍遥派" height="28"></a><p class="is-size-7"><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p><p class="is-size-7">Copyright © 2025 SMEL | Xiaooyao</p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="../../../../js/column.js"></script><script src="../../../../js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script data-pjax src="../../../../js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/pjax/0.2.8/pjax.min.js"></script><script src="../../../../js/pjax.js"></script><!--!--><!--!--><!--!--><script data-pjax src="../../../../js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script data-pjax src="../../../../js/insight.js" defer></script><script data-pjax>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"../../../../content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

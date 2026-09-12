@@ -137,3 +137,8 @@
         $('.navbar-main .catalogue').on('click', toggleToc);
     }
 }(jQuery, window.moment, window.ClipboardJS, window.IcarusThemeSettings));
+
+// 懒加载修复
+    $(document).find('img[data-original]').each(function () {
+        $(this).parent().attr("href", $(this).attr("data-original"));
+    });

@@ -1,5 +1,5 @@
 (function () {
-    if (document.getElementById('theme-settings-root')) {
+    if (document.getElementById('theme-settings-root') && document.getElementById('tc-panel')) {
         return;
     }
     var KEY = 'theme_settings';
@@ -62,11 +62,11 @@
     }
 
     function mark() {
-        var root = document.getElementById('theme-settings-root');
-        if (!root) {
+        var panel = document.getElementById('tc-panel');
+        if (!panel) {
             return;
         }
-        var segs = root.querySelectorAll('.tc-seg');
+        var segs = panel.querySelectorAll('.tc-seg');
         for (var i = 0; i < segs.length; i += 1) {
             var group = segs[i].getAttribute('data-group');
             var spans = segs[i].querySelectorAll('span');
@@ -75,7 +75,7 @@
                 spans[j].className = on ? 'on' : '';
             }
         }
-        var dots = root.querySelectorAll('.tc-dot');
+        var dots = panel.querySelectorAll('.tc-dot');
         for (var k = 0; k < dots.length; k += 1) {
             var act = dots[k].getAttribute('data-value') === state.accent;
             dots[k].className = 'tc-dot' + (act ? ' on' : '');
@@ -117,6 +117,16 @@
             return;
         }
 
+        // clean up leftovers from previous pjax round
+        var oldRoot = document.getElementById('theme-settings-root');
+        if (oldRoot) {
+            oldRoot.parentNode.removeChild(oldRoot);
+        }
+        var oldPanel = document.getElementById('tc-panel');
+        if (oldPanel) {
+            oldPanel.parentNode.removeChild(oldPanel);
+        }
+
         var root = el('div', 'tc-center');
         root.id = 'theme-settings-root';
 
@@ -125,6 +135,7 @@
         trig.setAttribute('title', '主题中心');
 
         var panel = el('div', 'tc-panel');
+        panel.id = 'tc-panel';
         panel.appendChild(el('div', 'tc-title', '主题中心'));
 
         panel.appendChild(buildSeg('卡片材质', 'material', [['glass', '毛玻璃'], ['solid', '纯色']]));
@@ -145,8 +156,10 @@
         panel.appendChild(secA);
 
         root.appendChild(trig);
-        root.appendChild(panel);
         end.appendChild(root);
+        // panel must live on <body>: navbar has backdrop-filter + isolation,
+        // which creates a stacking context and traps the panel's z-index
+        document.body.appendChild(panel);
 
         trig.addEventListener('click', function (ev) {
             ev.stopPropagation();
@@ -202,7 +215,7 @@
         }
 
         document.addEventListener('click', function (ev) {
-            if (!root.contains(ev.target)) {
+            if (!root.contains(ev.target) && !panel.contains(ev.target)) {
                 closePanel();
             }
         });
